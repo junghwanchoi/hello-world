@@ -10,7 +10,7 @@ filepath = "C:\\Documents and Settings\\Username\\Desktop\\coolapps\\pythonprogr
 
 info = os.path.split(filepath)
 
-os.chdir(info[0])
+os.chdir(info[0])  # change directory 
 
 print os.path.getsize(info[-1])
 
