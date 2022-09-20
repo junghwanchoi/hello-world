@@ -14,3 +14,5 @@ os.chdir(info[0])
 
 print os.path.getsize(info[-1])
 
+
+
