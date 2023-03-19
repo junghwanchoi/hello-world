@@ -53,7 +53,8 @@ x = np.linspace(0, 10, 100)
 
 fig, ax = plt.subplots()
 for i in range(1, 10):
-    ax.plot(x, i * x + x, picker=5)
+    ax.plot(x, i * x + x, picker=True, pickradius=5)  # 5 points tolerance
+
 
 def on_pick(event):
     event.artist.set_visible(not event.artist.get_visible())
