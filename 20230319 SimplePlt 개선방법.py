@@ -40,7 +40,7 @@ plt.show()
 
 
 
-# 그래프창에서 선 클릭시 어떤일 할때
+# 그래프창에서 선 클릭시 어떤일 할때 #1
 
 # (출처) https://stackoverflow.com/questions/22201869/matplotlib-event-handling-line-picker
 
@@ -62,6 +62,37 @@ def on_pick(event):
 fig.canvas.callbacks.connect('pick_event', on_pick)
 plt.show()
 
+
+# 그래프창에서 선 클릭시 어떤일 할때 #2
+# (출처) https://coderslegacy.com/python/matplotlib-pick-event/
+
+
+import matplotlib.pyplot as plt
+from matplotlib.artist import Artist
+import numpy as np
+
+selectedPoint = None
+
+
+def onpick(event):
+    global selectedPoint
+    if selectedPoint != None:
+        props = {'color': "blue"}
+        Artist.update(selectedPoint, props)
+
+    props = {'color': "red"}
+    Artist.update(event.artist, props)
+    selectedPoint = event.artist
+    plt.draw()
+
+
+fig, ax = plt.subplots()
+fig.canvas.mpl_connect('pick_event', onpick)
+
+for i in range(10):
+    ax.scatter(np.random.random(), np.random.random(),
+               picker=True, pickradius=5, color="blue")
+plt.show()
 
 
 
